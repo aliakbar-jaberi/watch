@@ -102,7 +102,6 @@ function editAlarms(e) {
     active.active = true;
     saveAllAlarem(alarm);
     createAlarme(alarm);
-    console.log(active.titel);
     close();
   });
 }
@@ -110,10 +109,9 @@ function editAlarms(e) {
 function removeAlarms(e) {
   let alarm = getAllAlarms();
   const alarmId = Number(e.target.dataset.todoId);
- alarm = alarm.filter((t) => t.id !== alarmId);
+  alarm = alarm.filter((t) => t.id !== alarmId);
   saveAllAlarem(alarm);
   createAlarme(alarm);
-  
 }
 function close() {
   formAlarm.style.transform = "rotatey(-90deg)";
@@ -137,8 +135,8 @@ function createAlarme(alarms) {
                alarm.id
              } ></i>
             <i class="alarm__delete  fa-solid fa-trash" data-todo-id=${
-      alarm.id
-    }></i>
+              alarm.id
+            }></i>
           </td>
         </tr>`;
   });
@@ -178,7 +176,7 @@ function currenWatch() {
 
   if (hours > 12) {
     message.innerText = "Good Afternoon";
-    return
+    return;
   }
 
   if (hours <= 6 && hours >= 5) {
@@ -206,9 +204,16 @@ function snooze() {
   let alarm = getAllAlarms();
   const alarmId = alarmActive.id;
   const active = alarm.find((a) => a.id === alarmId);
+  hours = parseInt(active.h);
   mins = parseInt(active.m);
   mins += 10;
+  if (mins >= 60) {
+    hours += 1;
+    mins -= 60;
+  }
   active.m = mins < 10 ? "0" + mins : mins;
+  active.h = hours < 10 ? "0" + hours : hours;
+
   saveAllAlarem(alarm);
 
   if (alarmId) {
@@ -254,5 +259,3 @@ function saveAlarm(alarms) {
 function saveAllAlarem(alarms) {
   localStorage.setItem("alarms", JSON.stringify(alarms));
 }
-
-
