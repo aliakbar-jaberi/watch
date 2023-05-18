@@ -174,15 +174,12 @@ function currenWatch() {
   });
   document.querySelector(".watch").innerText = time;
 
-  if (hours > 12) {
-    message.innerText = "Good Afternoon";
-    return;
-  }
-
   if (hours <= 6 && hours >= 5) {
     body.style.backgroundImage = "url(/assets/img/Rise.svg)";
     message.innerText = "Good Morning";
     return;
+  }  if (hours > 12) {
+    message.innerText = "Good Afternoon";
   }
   if (hours < 19 && hours >= 17) {
     body.style.backgroundImage = "url(/assets/img/sunset.svg)";
@@ -194,10 +191,12 @@ function currenWatch() {
     message.innerText = "Good Night";
     return;
   } else {
-    body.style.backgroundImage = "url(/assets/img/Day.svg))";
+    body.style.backgroundImage = "url(/assets/img/night.svg)";
     message.innerText = "Good Morning";
     return;
-  }
+  };
+
+
 }
 
 function snooze() {
