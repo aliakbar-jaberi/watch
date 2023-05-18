@@ -165,6 +165,7 @@ function currenWatch() {
   alarm.forEach((e) => {
     if (e.h == hours && e.m == min && e.active && e.s == second) {
       audio.play();
+      audio.loop = true;
       alarmName.innerText = e.titel;
       alarmTime.innerText = `${e.h}:${e.m}`;
       messageAlarm.style.display = "flex";
