@@ -191,7 +191,7 @@ function currenWatch() {
     message.innerText = "Good Night";
     return;
   } else {
-    body.style.backgroundImage = "url(/assets/img/night.svg)";
+    body.style.backgroundImage = "url(/assets/img/Day.svg)";
     message.innerText = "Good Morning";
     return;
   };
