@@ -74,7 +74,7 @@ function addNewAlarm(e) {
   close();
 }
 function openSetting() {
-  formAlarm.style.transform = "  rotatey(0deg)";
+  formAlarm.style.transform = " translateX(-50%)  rotatey(0deg)";
   formBack.style.display = "block";
   formBack.style.opacity = "1";
 }
@@ -85,7 +85,7 @@ function editAlarms(e) {
   const active = alarm.find((a) => a.id === alarmId);
   editTitel.value = active.titel;
   editInput.value = `${active.h}:${active.m}`;
-  editAlarm.style.transform = "  rotatey(0deg)";
+  editAlarm.style.transform = " translateX(-50%)  rotatey(0deg)";
   formBack.style.display = "block";
   formBack.style.opacity = "1";
   editAlarm.addEventListener("submit", (e) => {
@@ -114,8 +114,8 @@ function removeAlarms(e) {
   createAlarme(alarm);
 }
 function close() {
-  formAlarm.style.transform = "rotatey(-90deg)";
-  editAlarm.style.transform = "  rotatey(-90deg)";
+  formAlarm.style.transform = " translateX(-50%) rotatey(-90deg)";
+  editAlarm.style.transform = " translateX(-50%)  rotatey(-90deg)";
   formBack.style.display = "none";
   formBack.style.opacity = "0";
 }
